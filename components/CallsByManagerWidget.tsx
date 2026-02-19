@@ -257,7 +257,7 @@ export default function CallsByManagerWidget() {
                         <td className="px-4 py-3 whitespace-nowrap text-sm text-gray-700">{row.contactName}</td>
                         <td className="px-4 py-3 whitespace-nowrap text-sm text-gray-700">{row.dateTime}</td>
                         <td className="px-4 py-3 whitespace-nowrap text-sm text-gray-700">{row.status}</td>
-                        <td className="px-4 py-3 whitespace-nowrap text-sm text-gray-700">{row.calledBack ? 'Да' : 'Нет'}</td>
+                        <td className="px-4 py-3 whitespace-nowrap text-sm text-gray-700">{row.calledBack ? 'Yes' : 'No'}</td>
                       </tr>
                     ))}
                   </tbody>
