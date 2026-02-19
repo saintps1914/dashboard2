@@ -178,7 +178,7 @@ export default function CallsByManagerWidget() {
                   : 'border-transparent text-gray-500 hover:text-gray-700'
               }`}
             >
-              Статистика
+              Statistics
             </button>
             <button
               type="button"
@@ -189,7 +189,7 @@ export default function CallsByManagerWidget() {
                   : 'border-transparent text-gray-500 hover:text-gray-700'
               }`}
             >
-              Пропущенные звонки
+              Missed calls
             </button>
           </nav>
         </div>
@@ -223,13 +223,13 @@ export default function CallsByManagerWidget() {
           <div className="space-y-3">
             {missedManagerNames.length > 0 && (
               <div className="flex items-center gap-2">
-                <label className="text-sm text-gray-600">Менеджер:</label>
+                <label className="text-sm text-gray-600">Manager:</label>
                 <select
                   value={managerFilter}
                   onChange={(e) => setManagerFilter(e.target.value)}
                   className="border border-gray-300 rounded px-2 py-1 text-sm"
                 >
-                  <option value="">Все</option>
+                  <option value="">All</option>
                   {missedManagerNames.map((name) => (
                     <option key={name} value={name}>{name}</option>
                   ))}
@@ -237,17 +237,17 @@ export default function CallsByManagerWidget() {
               </div>
             )}
             {missedLoading ? (
-              <div className="py-4 text-center text-gray-600 text-sm">Загрузка...</div>
+              <div className="py-4 text-center text-gray-600 text-sm">Loading...</div>
             ) : (
               <div className="overflow-x-auto">
                 <table className="min-w-full divide-y divide-gray-200">
                   <thead className="bg-gray-50">
                     <tr>
-                      <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Менеджер</th>
-                      <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Клиент</th>
-                      <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Дата и время</th>
-                      <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Статус</th>
-                      <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Перезвонили</th>
+                      <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Manager</th>
+                      <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Client</th>
+                      <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Date and time</th>
+                      <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Status</th>
+                      <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Call back</th>
                     </tr>
                   </thead>
                   <tbody className="bg-white divide-y divide-gray-200">
@@ -263,7 +263,7 @@ export default function CallsByManagerWidget() {
                   </tbody>
                 </table>
                 {missed.length === 0 && !missedLoading && (
-                  <div className="py-4 text-center text-gray-500 text-sm">Нет пропущенных звонков</div>
+                  <div className="py-4 text-center text-gray-500 text-sm">No missed calls</div>
                 )}
               </div>
             )}
