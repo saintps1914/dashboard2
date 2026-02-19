@@ -81,7 +81,7 @@ export async function POST(request: NextRequest) {
     const existing: CallsReportsStorage = { callsReportsByDate: { ...callsReportsByDate } };
     existing.callsReportsByDate[reportDate] = entry;
     await writeAppData('calls_reports.json', existing);
-    await writeAppData(`archive_calls_${Date.now()}`, { reportDate, ...entry });
+    await writeAppData(`archive_calls_${Date.now()}`, entry);
 
     return NextResponse.json({
       success: true,
