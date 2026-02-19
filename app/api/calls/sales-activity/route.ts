@@ -8,9 +8,12 @@ type CallsReportEntry = {
     answeredCalls: number;
     callsOver30Sec: number;
   };
+  perManagerAggregates?: { managerName: string; totalCalls: number; answeredCalls: number; callsOver30Sec: number }[];
   reportDate: string;
   uploadedAt: number;
 };
+
+type PerManagerItem = { managerName: string; totalCalls: number; answeredCalls: number; callsOver30Sec: number };
 
 type CallsReportsStorage = {
   callsReportsByDate: Record<string, CallsReportEntry>;
@@ -32,6 +35,26 @@ export async function GET(request: NextRequest) {
     const reportDates = Object.keys(reports).sort().reverse();
     const latestDate = reportDates[0];
 
+    const visibleNames = user.visibility_settings?.callsByManager;
+    const filterVisible = (list: { managerName: string }[]) => {
+      if (!visibleNames || visibleNames.length === 0) return list;
+      const set = new Set(visibleNames.map((n) => n.toLowerCase()));
+      return list.filter((m) => set.has(m.managerName.toLowerCase()));
+    };
+
+    const sumFromEntry = (r: CallsReportEntry) => {
+      const per: PerManagerItem[] = r.perManagerAggregates ?? [];
+      const visible = filterVisible(per) as PerManagerItem[];
+      return visible.reduce(
+        (acc, m) => ({
+          totalCalls: acc.totalCalls + m.totalCalls,
+          answeredCalls: acc.answeredCalls + m.answeredCalls,
+          callsOver30Sec: acc.callsOver30Sec + m.callsOver30Sec,
+        }),
+        { totalCalls: 0, answeredCalls: 0, callsOver30Sec: 0 }
+      );
+    };
+
     const searchParams = request.nextUrl.searchParams;
     const period = searchParams.get('period') || 'today';
 
@@ -44,12 +67,13 @@ export async function GET(request: NextRequest) {
         });
       }
       const r = reports[latestDate];
+      const sums = sumFromEntry(r);
       return NextResponse.json({
         success: true,
         today: {
-          calls: r.totalsAggregates.totalCalls,
-          answered: r.totalsAggregates.answeredCalls,
-          conversations: r.totalsAggregates.callsOver30Sec,
+          calls: sums.totalCalls,
+          answered: sums.answeredCalls,
+          conversations: sums.callsOver30Sec,
           uploadedAt: r.uploadedAt,
         },
         reportDate: r.reportDate,
@@ -70,9 +94,10 @@ export async function GET(request: NextRequest) {
         const key = d.toISOString().slice(0, 10);
         const r = reports[key];
         if (r) {
-          totalCalls += r.totalsAggregates.totalCalls;
-          totalAnswered += r.totalsAggregates.answeredCalls;
-          totalConversations += r.totalsAggregates.callsOver30Sec;
+          const sums = sumFromEntry(r);
+          totalCalls += sums.totalCalls;
+          totalAnswered += sums.answeredCalls;
+          totalConversations += sums.callsOver30Sec;
           coveredDays += 1;
         }
       }

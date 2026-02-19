@@ -7,6 +7,7 @@ import {
   generatePassword,
   type WidgetToggles,
   type UserRecord,
+  type VisibilitySettings,
 } from '@/lib/userStore';
 
 function normalizeWidgets(w: Partial<WidgetToggles> | null | undefined): WidgetToggles {
@@ -37,9 +38,10 @@ export async function POST(request: NextRequest) {
     }
 
     const body = await request.json();
-    const { id, widgets, action } = body as {
+    const { id, widgets, visibility_settings, action } = body as {
       id?: string;
       widgets?: Partial<WidgetToggles>;
+      visibility_settings?: VisibilitySettings;
       action?: 'add' | 'update';
     };
 
@@ -73,6 +75,7 @@ export async function POST(request: NextRequest) {
         password: pwd,
         role: 'user',
         widgets: normalizeWidgets({}),
+        visibility_settings: {},
       };
       users.push(newUser);
       await saveAllUsers(users);
@@ -83,7 +86,7 @@ export async function POST(request: NextRequest) {
       });
     }
 
-    if (!id || !widgets) {
+    if (!id) {
       return NextResponse.json({ success: false, error: 'Invalid payload' }, { status: 400 });
     }
 
@@ -94,7 +97,8 @@ export async function POST(request: NextRequest) {
     }
 
     const user = users[index];
-    const newWidgets = normalizeWidgets(widgets);
+    const newWidgets = widgets !== undefined ? normalizeWidgets(widgets) : user.widgets;
+    const newVisibility = visibility_settings !== undefined ? visibility_settings : user.visibility_settings;
 
     if (user.role === 'admin') {
       const anyOn = newWidgets.managerTasks || newWidgets.specialistTasks || newWidgets.salesReport || newWidgets.callsByManager;
@@ -106,7 +110,7 @@ export async function POST(request: NextRequest) {
       }
     }
 
-    users[index] = { ...user, widgets: newWidgets };
+    users[index] = { ...user, widgets: newWidgets, visibility_settings: newVisibility ?? {} };
     await saveAllUsers(users);
 
     return NextResponse.json({ success: true, user: toPublicUser(users[index]) });

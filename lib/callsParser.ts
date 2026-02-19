@@ -24,6 +24,26 @@ export type CallRow = {
   callStatus: string;
 };
 
+/** Полная строка для вкладки «Пропущенные звонки» */
+export type CallRowFull = {
+  numberName: string;
+  durationSeconds: number;
+  callStatus: string;
+  direction: string;
+  contactName: string;
+  contactPhone: string;
+  dateTime: string;
+  dateTimeSort: number;
+};
+
+export type MissedCallRow = {
+  managerName: string;
+  contactName: string;
+  dateTime: string;
+  status: string;
+  calledBack: boolean;
+};
+
 export type ManagerCallsAggregate = {
   managerName: string;
   totalCalls: number;
@@ -56,6 +76,74 @@ export function parseCallsCsv(csvText: string): CallRow[] {
   }
 
   return rows;
+}
+
+/** Парсит полные строки CSV для пропущенных звонков */
+export function parseCallsCsvFull(csvText: string): CallRowFull[] {
+  const result = Papa.parse<Record<string, string>>(csvText, {
+    header: true,
+    skipEmptyLines: true,
+  });
+
+  const rows: CallRowFull[] = [];
+  for (const row of result.data) {
+    const numberName = (row['Number Name'] ?? row['number name'] ?? '').trim();
+    const durationStr = row['Duration'] ?? row['duration'] ?? '';
+    const callStatus = (row['Call Status'] ?? row['call status'] ?? '').trim();
+    const direction = (row['Direction'] ?? row['direction'] ?? '').trim().toLowerCase();
+    const contactName = (row['Contact Name'] ?? row['contact name'] ?? '').trim();
+    const contactPhone = (row['Contact Phone'] ?? row['contact phone'] ?? '').trim();
+    const dateTimeStr = (row['Date & Time'] ?? row['date & time'] ?? row['Date and Time'] ?? '').trim();
+
+    if (!numberName) continue;
+
+    const durationSeconds = parseDurationToSeconds(durationStr);
+    const dateTimeSort = dateTimeStr ? new Date(dateTimeStr).getTime() : 0;
+
+    rows.push({
+      numberName,
+      durationSeconds,
+      callStatus,
+      direction,
+      contactName,
+      contactPhone,
+      dateTime: dateTimeStr || '—',
+      dateTimeSort: isNaN(dateTimeSort) ? 0 : dateTimeSort,
+    });
+  }
+  return rows;
+}
+
+/** Пропущенные входящие и флаг «Перезвонили» */
+export function getMissedCallsWithCallback(rows: CallRowFull[]): MissedCallRow[] {
+  const missed = rows.filter(
+    (r) => r.callStatus.toLowerCase() === 'missed' && r.direction === 'inbound'
+  );
+  const byPhone = new Map<string, { dateTimeSort: number }[]>();
+  for (const r of rows) {
+    if (!r.contactPhone) continue;
+    const list = byPhone.get(r.contactPhone) ?? [];
+    list.push({ dateTimeSort: r.dateTimeSort });
+    byPhone.set(r.contactPhone, list);
+  }
+  const outboundByPhone = rows
+    .filter((r) => r.direction === 'outbound' && r.contactPhone)
+    .slice()
+    .sort((a, b) => a.dateTimeSort - b.dateTimeSort);
+
+  return missed.map((m) => {
+    const outboundSame = outboundByPhone.filter(
+      (o) => o.contactPhone === m.contactPhone && o.dateTimeSort > m.dateTimeSort
+    );
+    const calledBack = outboundSame.length > 0;
+    return {
+      managerName: m.numberName,
+      contactName: m.contactName || m.contactPhone || '—',
+      dateTime: m.dateTime,
+      status: m.callStatus,
+      calledBack,
+    };
+  });
 }
 
 /** Extract reportDate from filename like call-reporting-2026-02-18_19-40-06.csv */

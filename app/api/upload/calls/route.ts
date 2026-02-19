@@ -2,11 +2,14 @@ import { NextRequest, NextResponse } from 'next/server';
 import { getSessionUserFromCookie } from '@/lib/auth';
 import {
   parseCallsCsv,
+  parseCallsCsvFull,
   aggregateCallsByManager,
   extractReportDateFromFilename,
 } from '@/lib/callsParser';
 import { readAppData, writeAppData, validateFileSize } from '@/lib/db';
 import type { ManagerCallsAggregate } from '@/lib/callsParser';
+
+type CallRowFull = import('@/lib/callsParser').CallRowFull;
 
 type CallsReportEntry = {
   perManagerAggregates: ManagerCallsAggregate[];
@@ -18,6 +21,7 @@ type CallsReportEntry = {
   reportDate: string;
   originalFileName: string;
   uploadedAt: number;
+  rawRows?: CallRowFull[];
 };
 
 type CallsReportsStorage = {
@@ -49,6 +53,7 @@ export async function POST(request: NextRequest) {
     validateFileSize(file.size);
     const text = await file.text();
     const calls = parseCallsCsv(text);
+    const rawRows = parseCallsCsvFull(text);
     const perManager = aggregateCallsByManager(calls);
 
     const reportDate = extractReportDateFromFilename(file.name) ?? new Date().toISOString().slice(0, 10);
@@ -65,6 +70,7 @@ export async function POST(request: NextRequest) {
       reportDate,
       originalFileName: file.name,
       uploadedAt: Date.now(),
+      rawRows,
     };
 
     const raw = await readAppData<CallsReportsStorage>('calls_reports.json');
@@ -75,6 +81,7 @@ export async function POST(request: NextRequest) {
     const existing: CallsReportsStorage = { callsReportsByDate: { ...callsReportsByDate } };
     existing.callsReportsByDate[reportDate] = entry;
     await writeAppData('calls_reports.json', existing);
+    await writeAppData(`archive_calls_${Date.now()}`, { reportDate, ...entry });
 
     return NextResponse.json({
       success: true,

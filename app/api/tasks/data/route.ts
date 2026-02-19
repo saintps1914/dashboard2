@@ -15,7 +15,10 @@ export async function GET(request: NextRequest) {
     const filter = searchParams.get('filter') as 'all' | 'overdue' | 'dueToday' | 'totals' | null;
 
     if (type === 'manager') {
-      const { rows, uploadedAt } = await getManagerTasksData();
+      const cookieHeader = request.headers.get('cookie');
+      const sessionUser = getSessionUserFromCookie(cookieHeader);
+      const visibleNames = sessionUser?.visibility_settings?.managerTasks ?? undefined;
+      const { rows, uploadedAt } = await getManagerTasksData(visibleNames);
       return NextResponse.json({ success: true, data: rows, uploadedAt });
     }
 

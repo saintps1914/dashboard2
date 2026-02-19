@@ -9,6 +9,14 @@ export type WidgetToggles = {
   callsByManager: boolean;
 };
 
+/** По каждому виджету — массив имён сотрудников, которых пользователь может видеть. Пустой/undefined = видит всех. */
+export type VisibilitySettings = Partial<{
+  managerTasks: string[];
+  specialistTasks: string[];
+  salesReport: string[];
+  callsByManager: string[];
+}>;
+
 export type UserRecord = {
   id: string;
   name: string;
@@ -17,6 +25,7 @@ export type UserRecord = {
   password: string;
   role: UserRole;
   widgets: WidgetToggles;
+  visibility_settings?: VisibilitySettings;
 };
 
 export type ApiUser = {
@@ -42,6 +51,11 @@ function ensureWidgetsShape(w: Record<string, unknown> | null | undefined): Widg
   };
 }
 
+function ensureVisibilitySettings(v: VisibilitySettings | null | undefined): VisibilitySettings {
+  if (v && typeof v === 'object') return v;
+  return {};
+}
+
 type UsersStorage = { users: UserRecord[] };
 
 async function readUsersData(): Promise<{ users: UserRecord[] }> {
@@ -51,6 +65,7 @@ async function readUsersData(): Promise<{ users: UserRecord[] }> {
       users: data.users.map((u: UserRecord) => ({
         ...u,
         widgets: ensureWidgetsShape(u.widgets),
+        visibility_settings: ensureVisibilitySettings(u.visibility_settings),
       })),
     };
   }
@@ -64,6 +79,7 @@ async function readUsersData(): Promise<{ users: UserRecord[] }> {
         password: 'admin123',
         role: 'admin' as UserRole,
         widgets: defaultWidgets,
+        visibility_settings: {} as VisibilitySettings,
       },
     ],
   };

@@ -47,6 +47,7 @@ export async function POST(request: NextRequest) {
     };
 
     await writeAppData('contacts_last_upload.json', data);
+    await writeAppData(`archive_contacts_${Date.now()}`, data);
 
     return NextResponse.json({
       success: true,

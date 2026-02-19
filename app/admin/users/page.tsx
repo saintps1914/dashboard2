@@ -3,11 +3,18 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { getSessionRole, getSessionUser } from '@/lib/auth';
-import type { PublicUser, WidgetToggles } from '@/lib/userStore';
+import type { PublicUser, WidgetToggles, VisibilitySettings } from '@/lib/userStore';
 
 interface UserWithId extends PublicUser {
   id: string;
 }
+
+type VisibilityOptions = {
+  managerTasks: string[];
+  specialistTasks: string[];
+  salesReport: string[];
+  callsByManager: string[];
+};
 
 export default function UserSettingsPage() {
   const router = useRouter();
@@ -27,6 +34,12 @@ export default function UserSettingsPage() {
   const [addSaving, setAddSaving] = useState(false);
   const [editingUserIds, setEditingUserIds] = useState<Set<string>>(new Set());
   const [deleteConfirm, setDeleteConfirm] = useState<string | null>(null);
+  const [visibilityOptions, setVisibilityOptions] = useState<VisibilityOptions>({
+    managerTasks: [],
+    specialistTasks: [],
+    salesReport: [],
+    callsByManager: [],
+  });
 
   const currentUserId = getSessionUser()?.id;
 
@@ -54,11 +67,34 @@ export default function UserSettingsPage() {
     fetchUsers();
   }, [router]);
 
+  useEffect(() => {
+    const fetchOptions = async () => {
+      try {
+        const res = await fetch('/api/users/visibility-options');
+        const data = await res.json();
+        if (data.success) {
+          setVisibilityOptions({
+            managerTasks: data.managerTasks ?? [],
+            specialistTasks: data.specialistTasks ?? [],
+            salesReport: data.salesReport ?? [],
+            callsByManager: data.callsByManager ?? [],
+          });
+        }
+      } catch {
+        // ignore
+      }
+    };
+    if (getSessionRole() === 'admin') fetchOptions();
+  }, []);
+
   const hasUnsavedChanges = (userId: string) => {
     const u = users.find((x) => x.id === userId);
     const o = originalUsers.find((x) => x.id === userId);
     if (!u || !o) return false;
-    return JSON.stringify(u.widgets) !== JSON.stringify(o.widgets);
+    return (
+      JSON.stringify(u.widgets) !== JSON.stringify(o.widgets) ||
+      JSON.stringify(u.visibility_settings ?? {}) !== JSON.stringify(o.visibility_settings ?? {})
+    );
   };
 
   const handleToggleChange = (userId: string, field: keyof WidgetToggles, value: boolean) => {
@@ -67,6 +103,18 @@ export default function UserSettingsPage() {
     setUsers((prev) =>
       prev.map((u) =>
         u.id === userId ? { ...u, widgets: { ...u.widgets, [field]: value } } : u
+      )
+    );
+  };
+
+  const handleVisibilityChange = (userId: string, widgetId: keyof VisibilitySettings, names: string[]) => {
+    setError(null);
+    setMessage(null);
+    setUsers((prev) =>
+      prev.map((u) =>
+        u.id === userId
+          ? { ...u, visibility_settings: { ...(u.visibility_settings ?? {}), [widgetId]: names } }
+          : u
       )
     );
   };
@@ -82,7 +130,11 @@ export default function UserSettingsPage() {
       const res = await fetch('/api/users', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ id: userId, widgets: u.widgets }),
+        body: JSON.stringify({
+          id: userId,
+          widgets: u.widgets,
+          visibility_settings: u.visibility_settings ?? {},
+        }),
       });
       const data = await res.json();
       if (!res.ok || !data.success) throw new Error(data.error || 'Failed');
@@ -248,6 +300,7 @@ export default function UserSettingsPage() {
                 const canDelete = !isSelf && (user.role !== 'admin' || adminCount > 1);
 
                 return (
+                  <>
                   <tr key={user.id} className="hover:bg-gray-50">
                     <td className="px-4 py-3 text-sm text-gray-900">{user.name}</td>
                     <td className="px-4 py-3 text-sm text-gray-700">{user.email}</td>
@@ -338,6 +391,117 @@ export default function UserSettingsPage() {
                       </div>
                     </td>
                   </tr>
+                  {isEditing && (
+                    <tr className="bg-gray-50">
+                      <td colSpan={8} className="px-4 py-3">
+                        <div className="text-xs font-medium text-gray-600 mb-2">Видимость по виджетам (кого видит пользователь):</div>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                          <div>
+                            <div className="text-xs font-medium text-gray-700 mb-1">Manager Tasks</div>
+                            <div className="max-h-32 overflow-y-auto border rounded p-2 bg-white">
+                              {visibilityOptions.managerTasks.map((name) => {
+                                const list = (user.visibility_settings?.managerTasks ?? []) as string[];
+                                const checked = list.some((n) => n.toLowerCase() === name.toLowerCase());
+                                return (
+                                  <label key={name} className="flex items-center gap-1 text-xs">
+                                    <input
+                                      type="checkbox"
+                                      checked={checked}
+                                      onChange={(e) => {
+                                        const next = e.target.checked
+                                          ? [...list.filter((n) => n.toLowerCase() !== name.toLowerCase()), name]
+                                          : list.filter((n) => n.toLowerCase() !== name.toLowerCase());
+                                        handleVisibilityChange(user.id, 'managerTasks', next);
+                                      }}
+                                    />
+                                    {name}
+                                  </label>
+                                );
+                              })}
+                              {visibilityOptions.managerTasks.length === 0 && <span className="text-gray-400">—</span>}
+                            </div>
+                          </div>
+                          <div>
+                            <div className="text-xs font-medium text-gray-700 mb-1">Specialist Tasks</div>
+                            <div className="max-h-32 overflow-y-auto border rounded p-2 bg-white">
+                              {visibilityOptions.specialistTasks.map((name) => {
+                                const list = (user.visibility_settings?.specialistTasks ?? []) as string[];
+                                const checked = list.some((n) => n.toLowerCase() === name.toLowerCase());
+                                return (
+                                  <label key={name} className="flex items-center gap-1 text-xs">
+                                    <input
+                                      type="checkbox"
+                                      checked={checked}
+                                      onChange={(e) => {
+                                        const next = e.target.checked
+                                          ? [...list.filter((n) => n.toLowerCase() !== name.toLowerCase()), name]
+                                          : list.filter((n) => n.toLowerCase() !== name.toLowerCase());
+                                        handleVisibilityChange(user.id, 'specialistTasks', next);
+                                      }}
+                                    />
+                                    {name}
+                                  </label>
+                                );
+                              })}
+                              {visibilityOptions.specialistTasks.length === 0 && <span className="text-gray-400">—</span>}
+                            </div>
+                          </div>
+                          <div>
+                            <div className="text-xs font-medium text-gray-700 mb-1">Sales Report</div>
+                            <div className="max-h-32 overflow-y-auto border rounded p-2 bg-white">
+                              {visibilityOptions.salesReport.map((name) => {
+                                const list = (user.visibility_settings?.salesReport ?? []) as string[];
+                                const checked = list.some((n) => n.toLowerCase() === name.toLowerCase());
+                                return (
+                                  <label key={name} className="flex items-center gap-1 text-xs">
+                                    <input
+                                      type="checkbox"
+                                      checked={checked}
+                                      onChange={(e) => {
+                                        const next = e.target.checked
+                                          ? [...list.filter((n) => n.toLowerCase() !== name.toLowerCase()), name]
+                                          : list.filter((n) => n.toLowerCase() !== name.toLowerCase());
+                                        handleVisibilityChange(user.id, 'salesReport', next);
+                                      }}
+                                    />
+                                    {name}
+                                  </label>
+                                );
+                              })}
+                              {visibilityOptions.salesReport.length === 0 && <span className="text-gray-400">—</span>}
+                            </div>
+                          </div>
+                          <div>
+                            <div className="text-xs font-medium text-gray-700 mb-1">Calls by Manager</div>
+                            <div className="max-h-32 overflow-y-auto border rounded p-2 bg-white">
+                              {visibilityOptions.callsByManager.map((name) => {
+                                const list = (user.visibility_settings?.callsByManager ?? []) as string[];
+                                const checked = list.some((n) => n.toLowerCase() === name.toLowerCase());
+                                return (
+                                  <label key={name} className="flex items-center gap-1 text-xs">
+                                    <input
+                                      type="checkbox"
+                                      checked={checked}
+                                      onChange={(e) => {
+                                        const next = e.target.checked
+                                          ? [...list.filter((n) => n.toLowerCase() !== name.toLowerCase()), name]
+                                          : list.filter((n) => n.toLowerCase() !== name.toLowerCase());
+                                        handleVisibilityChange(user.id, 'callsByManager', next);
+                                      }}
+                                    />
+                                    {name}
+                                  </label>
+                                );
+                              })}
+                              {visibilityOptions.callsByManager.length === 0 && <span className="text-gray-400">Загрузите CSV звонков</span>}
+                            </div>
+                          </div>
+                        </div>
+                        <p className="text-xs text-gray-500 mt-1">Пустой список = видит всех. Отмеченные = видит только выбранных.</p>
+                      </td>
+                    </tr>
+                  )}
+                  </>
                 );
               })}
             </tbody>

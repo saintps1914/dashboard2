@@ -1,13 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getSessionUserFromCookie } from '@/lib/auth';
 import { readAppData } from '@/lib/db';
-import type { ManagerCallsAggregate } from '@/lib/callsParser';
+import { getMissedCallsWithCallback } from '@/lib/callsParser';
+import type { CallRowFull } from '@/lib/callsParser';
 
 type CallsReportEntry = {
-  perManagerAggregates: ManagerCallsAggregate[];
-  reportDate: string;
-  originalFileName: string;
-  uploadedAt: number;
+  rawRows?: CallRowFull[];
+  perManagerAggregates?: { managerName: string }[];
+  reportDate?: string;
 };
 
 type CallsReportsStorage = {
@@ -24,7 +24,7 @@ export async function GET(request: NextRequest) {
 
     const data = await readAppData<CallsReportsStorage>('calls_reports.json');
     const reports =
-      data && typeof data === 'object' && data !== null && typeof data.callsReportsByDate === 'object' && data.callsReportsByDate !== null
+      data?.callsReportsByDate && typeof data.callsReportsByDate === 'object'
         ? data.callsReportsByDate
         : {};
     const reportDates = Object.keys(reports).sort().reverse();
@@ -38,18 +38,28 @@ export async function GET(request: NextRequest) {
       return list.filter((m) => set.has(m.managerName.toLowerCase()));
     };
 
-    const perManager = latest ? filterByVisibility(latest.perManagerAggregates) : [];
+    const managerNames = latest?.perManagerAggregates
+      ? filterByVisibility(latest.perManagerAggregates).map((m) => m.managerName)
+      : [];
+
+    const rawRows = latest?.rawRows ?? [];
+    let missed = getMissedCallsWithCallback(rawRows);
+    if (managerNames.length > 0) {
+      const set = new Set(managerNames.map((n) => n.toLowerCase()));
+      missed = missed.filter((m) => set.has(m.managerName.toLowerCase()));
+    }
+
+    const managerFilter = request.nextUrl.searchParams.get('manager');
+    const missedFiltered =
+      managerFilter && managerFilter.trim()
+        ? missed.filter((m) => m.managerName.toLowerCase() === managerFilter.trim().toLowerCase())
+        : missed;
 
     return NextResponse.json({
       success: true,
-      latest: latest
-        ? {
-            reportDate: latest.reportDate,
-            uploadedAt: latest.uploadedAt,
-            perManager,
-          }
-        : null,
-      allDates: reportDates,
+      missed: missedFiltered,
+      managerNames,
+      reportDate: latest?.reportDate ?? null,
     });
   } catch (err: unknown) {
     const msg = err instanceof Error ? err.message : 'Failed';

@@ -101,7 +101,14 @@ export type ManagerTaskRow = {
   completedYesterday: number;
 };
 
-export async function getManagerTasksData(): Promise<{
+/** Проверка видимости: пустой/undefined = видеть всех; иначе только имена из списка (без учёта регистра). */
+function isVisibleByNames(employeeName: string, visibleNames: string[] | null | undefined): boolean {
+  if (!visibleNames || visibleNames.length === 0) return true;
+  const lower = employeeName.toLowerCase();
+  return visibleNames.some((n) => n.toLowerCase() === lower);
+}
+
+export async function getManagerTasksData(visibleNames?: string[] | null): Promise<{
   rows: ManagerTaskRow[];
   uploadedAt: number;
 }> {
@@ -115,12 +122,14 @@ export async function getManagerTasksData(): Promise<{
   const rows: ManagerTaskRow[] = [];
 
   for (const employeeId of employeeIds) {
+    const userName = EMPLOYEE_MAP[employeeId];
+    if (!isVisibleByNames(userName, visibleNames)) continue;
     const metrics = calculateMetrics(tasks, employeeId);
-    rows.push({ userName: EMPLOYEE_MAP[employeeId], ...metrics });
+    rows.push({ userName, ...metrics });
   }
 
   for (const [employeeId, employeeName] of Object.entries(EMPLOYEE_MAP)) {
-    if (!employeeIds.has(employeeId)) {
+    if (!employeeIds.has(employeeId) && isVisibleByNames(employeeName, visibleNames)) {
       rows.push({
         userName: employeeName,
         openTasks: 0,
