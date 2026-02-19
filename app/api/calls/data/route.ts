@@ -23,7 +23,10 @@ export async function GET(request: NextRequest) {
     }
 
     const data = await readAppData<CallsReportsStorage>('calls_reports.json');
-    const reports = data?.callsReportsByDate ?? {};
+    const reports =
+      data && typeof data === 'object' && data !== null && typeof data.callsReportsByDate === 'object' && data.callsReportsByDate !== null
+        ? data.callsReportsByDate
+        : {};
     const reportDates = Object.keys(reports).sort().reverse();
     const latestDate = reportDates[0];
     const latest = latestDate ? reports[latestDate] : null;

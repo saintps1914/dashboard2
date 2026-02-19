@@ -67,9 +67,12 @@ export async function POST(request: NextRequest) {
       uploadedAt: Date.now(),
     };
 
-    const existing = (await readAppData<CallsReportsStorage>('calls_reports.json')) ?? {
-      callsReportsByDate: {},
-    };
+    const raw = await readAppData<CallsReportsStorage>('calls_reports.json');
+    const callsReportsByDate =
+      raw && typeof raw === 'object' && raw !== null && typeof raw.callsReportsByDate === 'object' && raw.callsReportsByDate !== null
+        ? raw.callsReportsByDate
+        : {};
+    const existing: CallsReportsStorage = { callsReportsByDate: { ...callsReportsByDate } };
     existing.callsReportsByDate[reportDate] = entry;
     await writeAppData('calls_reports.json', existing);
 

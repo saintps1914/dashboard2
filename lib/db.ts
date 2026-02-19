@@ -25,7 +25,8 @@ export async function readAppData<T>(key: string): Promise<T | null> {
     throw error;
   }
 
-  return (data?.data as T) ?? null;
+  const value = data?.data as T | undefined | null;
+  return value ?? null;
 }
 
 export async function writeAppData(key: string, payload: unknown): Promise<void> {
