@@ -1,0 +1,1005 @@
+{
+  "users": [
+    {
+      "id": "admin",
+      "name": "Admin User",
+      "email": "admin@test.com",
+      "username": "admin@test.com",
+      "password": "admin123",
+      "role": "admin",
+      "widgets": {
+        "managerTasks": true,
+        "specialistTasks": true,
+        "salesReport": true
+      }
+    },
+    {
+      "id": "JXMaixCZvTArQNE08EGk",
+      "name": "Aleksandr Baranov",
+      "email": "aleksandrb@creditbooster.com",
+      "username": "aleksandrb@creditbooster.com",
+      "password": "5oFmUBdpKszQ",
+      "role": "user",
+      "widgets": {
+        "managerTasks": true,
+        "specialistTasks": true,
+        "salesReport": true
+      }
+    },
+    {
+      "id": "e47ywu1PwhFpENHNiF2H",
+      "name": "Aleksandra Kurin",
+      "email": "hr@creditbooster.com",
+      "username": "hr@creditbooster.com",
+      "password": "a0wy9bRu4xy8",
+      "role": "user",
+      "widgets": {
+        "managerTasks": true,
+        "specialistTasks": true,
+        "salesReport": true
+      }
+    },
+    {
+      "id": "lXe3bJGJZJfNE5Ai5SzN",
+      "name": "Aleksei Kodatenko",
+      "email": "alekseiko@creditbooster.com",
+      "username": "alekseiko@creditbooster.com",
+      "password": "ELeYahRaGrT7",
+      "role": "user",
+      "widgets": {
+        "managerTasks": true,
+        "specialistTasks": true,
+        "salesReport": true
+      }
+    },
+    {
+      "id": "QL9xtqhcf7TJJqcZcVsu",
+      "name": "Aleksei Krenitsyn",
+      "email": "alekseik@creditbooster.com",
+      "username": "alekseik@creditbooster.com",
+      "password": "RSsCD3mTfCO8",
+      "role": "user",
+      "widgets": {
+        "managerTasks": true,
+        "specialistTasks": true,
+        "salesReport": true
+      }
+    },
+    {
+      "id": "AUe5sd4JRDMSXRYFJQJ7",
+      "name": "Alexander Katsman",
+      "email": "crm@creditbooster.com",
+      "username": "crm@creditbooster.com",
+      "password": "hns6LmVqlUCM",
+      "role": "user",
+      "widgets": {
+        "managerTasks": true,
+        "specialistTasks": true,
+        "salesReport": true
+      }
+    },
+    {
+      "id": "mX6uIj8I5oeHQpXtQNK5",
+      "name": "Alia Kozoretskaya",
+      "email": "aliak@creditbooster.com",
+      "username": "aliak@creditbooster.com",
+      "password": "K4BuGwA5tOlN",
+      "role": "user",
+      "widgets": {
+        "managerTasks": true,
+        "specialistTasks": true,
+        "salesReport": true
+      }
+    },
+    {
+      "id": "Qu7TtmFUglRCrxfQcqtA",
+      "name": "Alina Yavlovskaya",
+      "email": "alinay@creditbooster.com",
+      "username": "alinay@creditbooster.com",
+      "password": "CY3eD55x9p6O",
+      "role": "user",
+      "widgets": {
+        "managerTasks": true,
+        "specialistTasks": true,
+        "salesReport": true
+      }
+    },
+    {
+      "id": "xBo3JSDBKQRbmcKkKk4I",
+      "name": "Alla Havrysh",
+      "email": "allah@urbansa.us",
+      "username": "allah@urbansa.us",
+      "password": "oGAszzBPn3M6",
+      "role": "user",
+      "widgets": {
+        "managerTasks": true,
+        "specialistTasks": true,
+        "salesReport": true
+      }
+    },
+    {
+      "id": "IKlbLAUmqoRGlEIi22Xf",
+      "name": "Almir Azimov",
+      "email": "almira@creditbooster.com",
+      "username": "almira@creditbooster.com",
+      "password": "jrnJmH4mAeBF",
+      "role": "user",
+      "widgets": {
+        "managerTasks": true,
+        "specialistTasks": true,
+        "salesReport": true
+      }
+    },
+    {
+      "id": "9fIAvzmbpsLLgtZMf9HU",
+      "name": "Anastasiia Lopatina",
+      "email": "anastasiial@creditbooster.com",
+      "username": "anastasiial@creditbooster.com",
+      "password": "J5Dee7MXdHCh",
+      "role": "user",
+      "widgets": {
+        "managerTasks": true,
+        "specialistTasks": true,
+        "salesReport": true
+      }
+    },
+    {
+      "id": "cfF9aCwubyXvBqwhgo5W",
+      "name": "Anastasiia Martin",
+      "email": "anastasiiam@creditbooster.com",
+      "username": "anastasiiam@creditbooster.com",
+      "password": "Td5XEz5Zfn1s",
+      "role": "user",
+      "widgets": {
+        "managerTasks": true,
+        "specialistTasks": true,
+        "salesReport": true
+      }
+    },
+    {
+      "id": "w0kRQNwNvkEneSyOe1le",
+      "name": "Andrey Chernyavskiy",
+      "email": "andreyc@creditbooster.com",
+      "username": "andreyc@creditbooster.com",
+      "password": "j5LRF2NMZuPl",
+      "role": "user",
+      "widgets": {
+        "managerTasks": true,
+        "specialistTasks": true,
+        "salesReport": true
+      }
+    },
+    {
+      "id": "ByOfHgZRwnUDmxe9UhQw",
+      "name": "Andrey Osokin",
+      "email": "andreyo@creditbooster.com",
+      "username": "andreyo@creditbooster.com",
+      "password": "fcu2iAnlY9gB",
+      "role": "user",
+      "widgets": {
+        "managerTasks": true,
+        "specialistTasks": true,
+        "salesReport": true
+      }
+    },
+    {
+      "id": "MwkcfZUAGjLfxqVxG2DN",
+      "name": "Anna Krupchenko",
+      "email": "annak@creditbooster.com",
+      "username": "annak@creditbooster.com",
+      "password": "zqHnew7Tfl31",
+      "role": "user",
+      "widgets": {
+        "managerTasks": true,
+        "specialistTasks": true,
+        "salesReport": true
+      }
+    },
+    {
+      "id": "BpOd8tLfllgxTyKlE6Gi",
+      "name": "Anton Zhidkov",
+      "email": "antonz@creditbooster.com",
+      "username": "antonz@creditbooster.com",
+      "password": "hhrFXMO0KsiG",
+      "role": "user",
+      "widgets": {
+        "managerTasks": true,
+        "specialistTasks": true,
+        "salesReport": true
+      }
+    },
+    {
+      "id": "CP6EdbZAge4nV9ZYF2w2",
+      "name": "Arina Alekhina",
+      "email": "arinaa@creditbooster.com",
+      "username": "arinaa@creditbooster.com",
+      "password": "MW8ENqBnjgh9",
+      "role": "user",
+      "widgets": {
+        "managerTasks": false,
+        "specialistTasks": true,
+        "salesReport": false
+      }
+    },
+    {
+      "id": "IEpFHawMZ1PyjLoUV7Pr",
+      "name": "Arina Lipkina",
+      "email": "arinal@creditbooster.com",
+      "username": "arinal@creditbooster.com",
+      "password": "leoNuvFO3Snc",
+      "role": "user",
+      "widgets": {
+        "managerTasks": true,
+        "specialistTasks": true,
+        "salesReport": true
+      }
+    },
+    {
+      "id": "nskWsdleZDj7fVCdMdzm",
+      "name": "Arslan Utiaganov",
+      "email": "arslanu@creditbooster.com",
+      "username": "arslanu@creditbooster.com",
+      "password": "3GheBTqgRjBN",
+      "role": "user",
+      "widgets": {
+        "managerTasks": true,
+        "specialistTasks": true,
+        "salesReport": true
+      }
+    },
+    {
+      "id": "akAUhPhJKZqr5dJwJRSE",
+      "name": "Artem Oleshko",
+      "email": "artemo@creditbooster.ai",
+      "username": "artemo@creditbooster.ai",
+      "password": "V2f81Xb6Mdsq",
+      "role": "user",
+      "widgets": {
+        "managerTasks": true,
+        "specialistTasks": true,
+        "salesReport": true
+      }
+    },
+    {
+      "id": "qCv9yLh4j2NU7cy6MoY1",
+      "name": "Daniil Polozov",
+      "email": "daniilp@creditbooster.com",
+      "username": "daniilp@creditbooster.com",
+      "password": "AzrOjP9AUBZD",
+      "role": "user",
+      "widgets": {
+        "managerTasks": true,
+        "specialistTasks": true,
+        "salesReport": true
+      }
+    },
+    {
+      "id": "bzdoFncppWiMsCf7ViP0",
+      "name": "Danil Khudyakov",
+      "email": "danilk@creditbooster.com",
+      "username": "danilk@creditbooster.com",
+      "password": "Gb1vEYh84Mt1",
+      "role": "user",
+      "widgets": {
+        "managerTasks": true,
+        "specialistTasks": true,
+        "salesReport": true
+      }
+    },
+    {
+      "id": "veUt8VWLRB7S8owJHdGr",
+      "name": "Daria Artemeva",
+      "email": "dariaa@creditbooster.com",
+      "username": "dariaa@creditbooster.com",
+      "password": "V8iPyBhB4v6O",
+      "role": "user",
+      "widgets": {
+        "managerTasks": true,
+        "specialistTasks": true,
+        "salesReport": true
+      }
+    },
+    {
+      "id": "gDfAF8xgSm0EE6rn6V0a",
+      "name": "Dmitrii Kabanov",
+      "email": "dmitriik@creditbooster.com",
+      "username": "dmitriik@creditbooster.com",
+      "password": "d3aJinXB8OXh",
+      "role": "user",
+      "widgets": {
+        "managerTasks": true,
+        "specialistTasks": true,
+        "salesReport": true
+      }
+    },
+    {
+      "id": "cIfPJ2lcZdrc1oHAqm7O",
+      "name": "Dmitrii Tikhonov",
+      "email": "dmitriit@creditbooster.com",
+      "username": "dmitriit@creditbooster.com",
+      "password": "95t7RrnMGY1U",
+      "role": "user",
+      "widgets": {
+        "managerTasks": true,
+        "specialistTasks": true,
+        "salesReport": true
+      }
+    },
+    {
+      "id": "At0ri7a25X2ihjMRTDrG",
+      "name": "Dmitriy Polyanskiy",
+      "email": "dmitriyp@creditbooster.com",
+      "username": "dmitriyp@creditbooster.com",
+      "password": "YtjsGbm8ukr5",
+      "role": "user",
+      "widgets": {
+        "managerTasks": true,
+        "specialistTasks": true,
+        "salesReport": true
+      }
+    },
+    {
+      "id": "yv1izSbksnD6HsRJ6tX2",
+      "name": "Dmitriy Zakurin",
+      "email": "dmitriyz@creditbooster.com",
+      "username": "dmitriyz@creditbooster.com",
+      "password": "btQdLxJrEFOs",
+      "role": "user",
+      "widgets": {
+        "managerTasks": true,
+        "specialistTasks": true,
+        "salesReport": true
+      }
+    },
+    {
+      "id": "zV497XEqDvcK1QURPcAg",
+      "name": "Dmytro Chernukha",
+      "email": "dmytroc@creditbooster.com",
+      "username": "dmytroc@creditbooster.com",
+      "password": "qlqIk2kVFN9C",
+      "role": "user",
+      "widgets": {
+        "managerTasks": true,
+        "specialistTasks": true,
+        "salesReport": true
+      }
+    },
+    {
+      "id": "2EvxFMWkeyvwgP4LB9rX",
+      "name": "Dmytro Halytskyi",
+      "email": "dmytroh@creditbooster.com",
+      "username": "dmytroh@creditbooster.com",
+      "password": "iDo0qfAmSVqZ",
+      "role": "user",
+      "widgets": {
+        "managerTasks": true,
+        "specialistTasks": true,
+        "salesReport": true
+      }
+    },
+    {
+      "id": "cnNyFDKhsotWgQaOU7L1",
+      "name": "Dmytro Shostak",
+      "email": "dmytros@creditbooster.com",
+      "username": "dmytros@creditbooster.com",
+      "password": "Lgb3yXhSfBUQ",
+      "role": "user",
+      "widgets": {
+        "managerTasks": true,
+        "specialistTasks": true,
+        "salesReport": true
+      }
+    },
+    {
+      "id": "laWKOyi1snDN5FGA8oI0",
+      "name": "Ekaterina Artyushkina",
+      "email": "dev.alexkr@gmail.com",
+      "username": "dev.alexkr@gmail.com",
+      "password": "InJPUIP7xzPP",
+      "role": "user",
+      "widgets": {
+        "managerTasks": true,
+        "specialistTasks": true,
+        "salesReport": true
+      }
+    },
+    {
+      "id": "09cHmkUuMWaWhrUQJOiv",
+      "name": "Eugene Kuzmenko",
+      "email": "genek@creditbooster.com",
+      "username": "genek@creditbooster.com",
+      "password": "92D1Be895ZxO",
+      "role": "user",
+      "widgets": {
+        "managerTasks": true,
+        "specialistTasks": true,
+        "salesReport": true
+      }
+    },
+    {
+      "id": "t5oriqTjOYO2QjMyhiIM",
+      "name": "Georgii Shepliakov",
+      "email": "heorhiis@creditbooster.com",
+      "username": "heorhiis@creditbooster.com",
+      "password": "MZpatdt2i2YM",
+      "role": "user",
+      "widgets": {
+        "managerTasks": true,
+        "specialistTasks": true,
+        "salesReport": true
+      }
+    },
+    {
+      "id": "kHRFo8qBal1NXffIhwT0",
+      "name": "Gleb Krasotin",
+      "email": "glebk@creditbooster.com",
+      "username": "glebk@creditbooster.com",
+      "password": "AW6XRsxaWJEG",
+      "role": "user",
+      "widgets": {
+        "managerTasks": true,
+        "specialistTasks": true,
+        "salesReport": true
+      }
+    },
+    {
+      "id": "xx3vbV9GiIhoxVFYl1um",
+      "name": "Ievgenii Kryvonos",
+      "email": "ievgeniik@creditbooster.com",
+      "username": "ievgeniik@creditbooster.com",
+      "password": "uNMh8dmBR52A",
+      "role": "user",
+      "widgets": {
+        "managerTasks": true,
+        "specialistTasks": true,
+        "salesReport": true
+      }
+    },
+    {
+      "id": "gdJYO1ckf7W2RHvUZTva",
+      "name": "Ihor Syrovatka",
+      "email": "ihors@creditbooster.com",
+      "username": "ihors@creditbooster.com",
+      "password": "lJtc6DvGBzZ3",
+      "role": "user",
+      "widgets": {
+        "managerTasks": true,
+        "specialistTasks": true,
+        "salesReport": true
+      }
+    },
+    {
+      "id": "uSnnR3bvud4VlTcwKJLk",
+      "name": "Ilya Baburin",
+      "email": "ilyab@creditbooster.com",
+      "username": "ilyab@creditbooster.com",
+      "password": "rrWBxIcJrccH",
+      "role": "user",
+      "widgets": {
+        "managerTasks": true,
+        "specialistTasks": true,
+        "salesReport": true
+      }
+    },
+    {
+      "id": "tV8TxEeD7kp7xivyRJDy",
+      "name": "Ilyas Kabulov",
+      "email": "ilyask@creditbooster.com",
+      "username": "ilyask@creditbooster.com",
+      "password": "5U7YcsJCqQNZ",
+      "role": "user",
+      "widgets": {
+        "managerTasks": true,
+        "specialistTasks": true,
+        "salesReport": true
+      }
+    },
+    {
+      "id": "MX0gcJsdnhGuS7quiUzf",
+      "name": "Irina Alekhina",
+      "email": "ramisbooster@gmail.com",
+      "username": "ramisbooster@gmail.com",
+      "password": "XDEKKldTXu9k",
+      "role": "user",
+      "widgets": {
+        "managerTasks": true,
+        "specialistTasks": true,
+        "salesReport": true
+      }
+    },
+    {
+      "id": "vwv62G0Cpno3rTP5rFun",
+      "name": "Julia Krendeleva",
+      "email": "juliak@creditbooster.com",
+      "username": "juliak@creditbooster.com",
+      "password": "1mREqaYdNbE0",
+      "role": "user",
+      "widgets": {
+        "managerTasks": true,
+        "specialistTasks": true,
+        "salesReport": true
+      }
+    },
+    {
+      "id": "GVJKE0NAS0jDbqTAHebk",
+      "name": "Kateryna Shuliatytska",
+      "email": "katyash957@gmail.com",
+      "username": "katyash957@gmail.com",
+      "password": "vt74wF4g8o4L",
+      "role": "user",
+      "widgets": {
+        "managerTasks": true,
+        "specialistTasks": true,
+        "salesReport": true
+      }
+    },
+    {
+      "id": "OsHntapgplNVOZGLsAtU",
+      "name": "Khrystyna Giervas",
+      "email": "khrystynag@creditbooster.com",
+      "username": "khrystynag@creditbooster.com",
+      "password": "zgGkv0eJsrJB",
+      "role": "user",
+      "widgets": {
+        "managerTasks": true,
+        "specialistTasks": true,
+        "salesReport": true
+      }
+    },
+    {
+      "id": "cc7jAf1OyTOZZQVDG87J",
+      "name": "Konstantin Druzhinin",
+      "email": "konstantind@creditbooster.com",
+      "username": "konstantind@creditbooster.com",
+      "password": "FP4nUUo0CssN",
+      "role": "user",
+      "widgets": {
+        "managerTasks": true,
+        "specialistTasks": true,
+        "salesReport": true
+      }
+    },
+    {
+      "id": "U72PGP8Yo6fWxEz8CpsA",
+      "name": "Kristina Troinova",
+      "email": "kristinat@creditbooster.com",
+      "username": "kristinat@creditbooster.com",
+      "password": "iIpxeKk8XWYS",
+      "role": "user",
+      "widgets": {
+        "managerTasks": true,
+        "specialistTasks": true,
+        "salesReport": true
+      }
+    },
+    {
+      "id": "WUIsiRPrgDe9Nucgu7qO",
+      "name": "Kseniya Balabaeva",
+      "email": "kseniyab@creditbooster.com",
+      "username": "kseniyab@creditbooster.com",
+      "password": "LfKOLMNqri38",
+      "role": "user",
+      "widgets": {
+        "managerTasks": true,
+        "specialistTasks": true,
+        "salesReport": true
+      }
+    },
+    {
+      "id": "8eDZBCemqksPM4o0hu12",
+      "name": "Lera Pozniak",
+      "email": "lerap@creditbooster.com",
+      "username": "lerap@creditbooster.com",
+      "password": "2HqXrPxhXYiA",
+      "role": "user",
+      "widgets": {
+        "managerTasks": true,
+        "specialistTasks": true,
+        "salesReport": true
+      }
+    },
+    {
+      "id": "Wqmu11dCoFUrG7dqijkK",
+      "name": "Liudmyla Sydachenko",
+      "email": "liudmylasy@creditbooster.com",
+      "username": "liudmylasy@creditbooster.com",
+      "password": "V3FEglulqusE",
+      "role": "user",
+      "widgets": {
+        "managerTasks": true,
+        "specialistTasks": true,
+        "salesReport": true
+      }
+    },
+    {
+      "id": "HvMOefMw7A3C8MrQaeZx",
+      "name": "Margarita Kitaeva",
+      "email": "margaritak@creditbooster.com",
+      "username": "margaritak@creditbooster.com",
+      "password": "VYJxpm3q2AlC",
+      "role": "user",
+      "widgets": {
+        "managerTasks": true,
+        "specialistTasks": true,
+        "salesReport": true
+      }
+    },
+    {
+      "id": "p6iwYIIp45DqNwsBd5XM",
+      "name": "Mark Tarytsanu",
+      "email": "markt@creditbooster.com",
+      "username": "markt@creditbooster.com",
+      "password": "4oawOQeNNpcj",
+      "role": "user",
+      "widgets": {
+        "managerTasks": true,
+        "specialistTasks": true,
+        "salesReport": true
+      }
+    },
+    {
+      "id": "JATkmnsvxv5QWSYMN0SR",
+      "name": "Maryna Shuliatytska",
+      "email": "garbarmarina13@gmail.com",
+      "username": "garbarmarina13@gmail.com",
+      "password": "H25jPRT7ZQjG",
+      "role": "user",
+      "widgets": {
+        "managerTasks": true,
+        "specialistTasks": true,
+        "salesReport": true
+      }
+    },
+    {
+      "id": "sEn4126azLP2UXaiCFhL",
+      "name": "Maryna Urvantseva",
+      "email": "marynau@creditbooster.com",
+      "username": "marynau@creditbooster.com",
+      "password": "SLwC7coN9Viv",
+      "role": "user",
+      "widgets": {
+        "managerTasks": true,
+        "specialistTasks": true,
+        "salesReport": true
+      }
+    },
+    {
+      "id": "xH14NETVonVm3Rvn7mkB",
+      "name": "Natalia Illarionova",
+      "email": "nataliai@creditbooster.com",
+      "username": "nataliai@creditbooster.com",
+      "password": "tCKkOTNUUpVK",
+      "role": "user",
+      "widgets": {
+        "managerTasks": true,
+        "specialistTasks": true,
+        "salesReport": true
+      }
+    },
+    {
+      "id": "50ipYol5S8SLE63rsWNW",
+      "name": "Nataliia Grek",
+      "email": "nataliiag@creditbooster.com",
+      "username": "nataliiag@creditbooster.com",
+      "password": "UgPC8W7dLfTH",
+      "role": "user",
+      "widgets": {
+        "managerTasks": true,
+        "specialistTasks": true,
+        "salesReport": true
+      }
+    },
+    {
+      "id": "WlLBdGKzcu9gULyIEjtI",
+      "name": "Nataliia Poliakova",
+      "email": "nataliia@urbansa.us",
+      "username": "nataliia@urbansa.us",
+      "password": "4lvtf48VJYYt",
+      "role": "user",
+      "widgets": {
+        "managerTasks": true,
+        "specialistTasks": true,
+        "salesReport": true
+      }
+    },
+    {
+      "id": "7w1tVfTrwJ5Gh4UDtmbP",
+      "name": "Nataly Regush",
+      "email": "nataliar@creditbooster.com",
+      "username": "nataliar@creditbooster.com",
+      "password": "0EKWsv6z1XFY",
+      "role": "user",
+      "widgets": {
+        "managerTasks": true,
+        "specialistTasks": true,
+        "salesReport": true
+      }
+    },
+    {
+      "id": "TibGEfFXSDsNEvByE9NL",
+      "name": "Nick Baglaievskyi",
+      "email": "nickb@creditbooster.com",
+      "username": "nickb@creditbooster.com",
+      "password": "EYNVyXLHBE4f",
+      "role": "user",
+      "widgets": {
+        "managerTasks": true,
+        "specialistTasks": true,
+        "salesReport": true
+      }
+    },
+    {
+      "id": "evVC8y9VyLgqMazBV27f",
+      "name": "Nikolay Urban",
+      "email": "vmgetcredy@gmail.com",
+      "username": "vmgetcredy@gmail.com",
+      "password": "yY9TOSN00uqL",
+      "role": "user",
+      "widgets": {
+        "managerTasks": true,
+        "specialistTasks": true,
+        "salesReport": true
+      }
+    },
+    {
+      "id": "WGzaU9aakTXQbVC2hiSQ",
+      "name": "Oleksandr Skakun",
+      "email": "oleksandrs1@creditbooster.com",
+      "username": "oleksandrs1@creditbooster.com",
+      "password": "AyAI5xflH85S",
+      "role": "user",
+      "widgets": {
+        "managerTasks": true,
+        "specialistTasks": true,
+        "salesReport": true
+      }
+    },
+    {
+      "id": "DSvZfxgURrWOpN210VZK",
+      "name": "Olga Meshcheryakova",
+      "email": "olgam@creditbooster.com",
+      "username": "olgam@creditbooster.com",
+      "password": "uNaUy9VyghJQ",
+      "role": "user",
+      "widgets": {
+        "managerTasks": true,
+        "specialistTasks": true,
+        "salesReport": true
+      }
+    },
+    {
+      "id": "Cxh8HOuQMDXUHhlR5qk8",
+      "name": "Olga Vasileva",
+      "email": "olgav@creditbooster.com",
+      "username": "olgav@creditbooster.com",
+      "password": "tPQbtifS0bzP",
+      "role": "user",
+      "widgets": {
+        "managerTasks": true,
+        "specialistTasks": true,
+        "salesReport": true
+      }
+    },
+    {
+      "id": "GNDTjISIzZpYAPyBO89O",
+      "name": "Pavel Pilikin",
+      "email": "pavelp@creditbooster.com",
+      "username": "pavelp@creditbooster.com",
+      "password": "kaZu2slABxru",
+      "role": "user",
+      "widgets": {
+        "managerTasks": true,
+        "specialistTasks": true,
+        "salesReport": true
+      }
+    },
+    {
+      "id": "F9vH57LZRpKkTnqYznjZ",
+      "name": "Pavel Talantov",
+      "email": "pavelt@creditbooster.com",
+      "username": "pavelt@creditbooster.com",
+      "password": "pIxgwqC2pKcy",
+      "role": "user",
+      "widgets": {
+        "managerTasks": true,
+        "specialistTasks": true,
+        "salesReport": true
+      }
+    },
+    {
+      "id": "dz1Mb4FjHzsXZmVhvvHo",
+      "name": "Ramis Yaparov",
+      "email": "collectionreports@creditbooster.com",
+      "username": "collectionreports@creditbooster.com",
+      "password": "ApDefJJZcwLP",
+      "role": "user",
+      "widgets": {
+        "managerTasks": true,
+        "specialistTasks": true,
+        "salesReport": true
+      }
+    },
+    {
+      "id": "kVQY2jyVcRBgYorv2DcC",
+      "name": "Ruanna Ordukhanova-Aslanyan",
+      "email": "ruannao@creditbooster.com",
+      "username": "ruannao@creditbooster.com",
+      "password": "GSMygaS5BdVw",
+      "role": "user",
+      "widgets": {
+        "managerTasks": true,
+        "specialistTasks": true,
+        "salesReport": true
+      }
+    },
+    {
+      "id": "h88sAXEIBczh0oHVz3M4",
+      "name": "Serhii Zinchenko",
+      "email": "serhiiz@creditbooster.ai",
+      "username": "serhiiz@creditbooster.ai",
+      "password": "tfVLLrYHoLal",
+      "role": "user",
+      "widgets": {
+        "managerTasks": true,
+        "specialistTasks": true,
+        "salesReport": true
+      }
+    },
+    {
+      "id": "nVZT7aTFZSgcFjfYmSx5",
+      "name": "Stepan Shevchenko",
+      "email": "brobascap@gmail.com",
+      "username": "brobascap@gmail.com",
+      "password": "GcPlL9GdWRB2",
+      "role": "user",
+      "widgets": {
+        "managerTasks": true,
+        "specialistTasks": true,
+        "salesReport": true
+      }
+    },
+    {
+      "id": "FN28aEunwWNWXiiX6nRY",
+      "name": "Stepan Shevchenko",
+      "email": "stepan@brobascap.com",
+      "username": "stepan@brobascap.com",
+      "password": "RLZR5QoHMCiZ",
+      "role": "user",
+      "widgets": {
+        "managerTasks": true,
+        "specialistTasks": true,
+        "salesReport": true
+      }
+    },
+    {
+      "id": "cTo7q67AJC5D5UL124BM",
+      "name": "Vadim Kozorezov",
+      "email": "vadimk@creditbooster.com",
+      "username": "vadimk@creditbooster.com",
+      "password": "fgNpCLFz6TjZ",
+      "role": "user",
+      "widgets": {
+        "managerTasks": true,
+        "specialistTasks": true,
+        "salesReport": true
+      }
+    },
+    {
+      "id": "pKw1HjeLRkK7vHQlHqu7",
+      "name": "Vlad Burnis",
+      "email": "vvburnis777@gmail.com",
+      "username": "vvburnis777@gmail.com",
+      "password": "7G68QZCP1iNi",
+      "role": "user",
+      "widgets": {
+        "managerTasks": true,
+        "specialistTasks": true,
+        "salesReport": true
+      }
+    },
+    {
+      "id": "nwqf03uGMX8N8xt2219o",
+      "name": "Vlad Zabudko",
+      "email": "vladz@creditbooster.com",
+      "username": "vladz@creditbooster.com",
+      "password": "0vKrWy70ySIc",
+      "role": "user",
+      "widgets": {
+        "managerTasks": true,
+        "specialistTasks": true,
+        "salesReport": true
+      }
+    },
+    {
+      "id": "8po6dSPwbWCuNtLGgXHD",
+      "name": "Vladimir Kryshtal",
+      "email": "vladimirk@creditbooster.com",
+      "username": "vladimirk@creditbooster.com",
+      "password": "qhi6EdSkmPEF",
+      "role": "user",
+      "widgets": {
+        "managerTasks": true,
+        "specialistTasks": true,
+        "salesReport": true
+      }
+    },
+    {
+      "id": "oqMez3W5ZrIZFQHp3asL",
+      "name": "Vyacheslav Petryanin",
+      "email": "vyacheslavp@creditbooster.com",
+      "username": "vyacheslavp@creditbooster.com",
+      "password": "Oa3oAMuI7eAD",
+      "role": "user",
+      "widgets": {
+        "managerTasks": true,
+        "specialistTasks": true,
+        "salesReport": true
+      }
+    },
+    {
+      "id": "ti491IouqLuR8bmISznA",
+      "name": "Yevhenii Mosieiev",
+      "email": "yevheniim@creditbooster.com",
+      "username": "yevheniim@creditbooster.com",
+      "password": "MhN3gc7YTCFx",
+      "role": "user",
+      "widgets": {
+        "managerTasks": true,
+        "specialistTasks": true,
+        "salesReport": true
+      }
+    },
+    {
+      "id": "1PgTl4rjwDIzhSWkalVF",
+      "name": "Yevhenii Struk",
+      "email": "struk0140@gmail.com",
+      "username": "struk0140@gmail.com",
+      "password": "Chmva2PXE0kG",
+      "role": "user",
+      "widgets": {
+        "managerTasks": true,
+        "specialistTasks": true,
+        "salesReport": true
+      }
+    },
+    {
+      "id": "ayYmdIB1O4ehUqwb01s9",
+      "name": "Yurii Kis",
+      "email": "ukis72052@gmail.com",
+      "username": "ukis72052@gmail.com",
+      "password": "Q2ZhyIzgj4gu",
+      "role": "user",
+      "widgets": {
+        "managerTasks": true,
+        "specialistTasks": true,
+        "salesReport": true
+      }
+    },
+    {
+      "id": "aaLnP2UQkZ4BHYVEha8j",
+      "name": "Zhenya Shaternik",
+      "email": "zhenyas@creditbooster.com",
+      "username": "zhenyas@creditbooster.com",
+      "password": "UwhKQMnWRcFe",
+      "role": "user",
+      "widgets": {
+        "managerTasks": true,
+        "specialistTasks": true,
+        "salesReport": true
+      }
+    },
+    {
+      "id": "IEWdL3g7ctoP2D3NP3jh",
+      "name": "Zlata Zolo",
+      "email": "zlataz@creditbooster.com",
+      "username": "zlataz@creditbooster.com",
+      "password": "YhTynC030Vdy",
+      "role": "user",
+      "widgets": {
+        "managerTasks": true,
+        "specialistTasks": true,
+        "salesReport": true
+      }
+    }
+  ]
+}

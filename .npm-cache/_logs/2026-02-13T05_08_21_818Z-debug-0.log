@@ -1,0 +1,259 @@
+0 verbose cli /usr/local/bin/node /usr/local/bin/npm
+1 info using npm@10.7.0
+2 info using node@v20.15.0
+3 silly config:load:file:/usr/local/lib/node_modules/npm/npmrc
+4 silly config:load:file:/Users/aleksejkrenicyn/Dashboard/.npmrc
+5 silly config:load:file:/Users/aleksejkrenicyn/.npmrc
+6 silly config:load:file:/usr/local/etc/npmrc
+7 verbose title npm install
+8 verbose argv "install" "--cache" "./.npm-cache"
+9 verbose logfile logs-max:10 dir:/Users/aleksejkrenicyn/Dashboard/.npm-cache/_logs/2026-02-13T05_08_21_818Z-
+10 verbose logfile /Users/aleksejkrenicyn/Dashboard/.npm-cache/_logs/2026-02-13T05_08_21_818Z-debug-0.log
+11 silly logfile done cleaning log files
+12 silly idealTree buildDeps
+13 silly fetch manifest next@^14.2.18
+14 http fetch GET 200 https://registry.npmjs.org/next 42ms (cache hit)
+15 silly fetch manifest @opentelemetry/api@^1.1.0
+16 http fetch GET 200 https://registry.npmjs.org/@opentelemetry%2fapi 3ms (cache hit)
+17 silly fetch manifest @playwright/test@^1.41.2
+18 http fetch GET 200 https://registry.npmjs.org/@playwright%2ftest 10ms (cache hit)
+19 silly fetch manifest react@^18.3.1
+20 http fetch GET 200 https://registry.npmjs.org/react 8ms (cache hit)
+21 silly fetch manifest react-dom@^18.3.1
+22 http fetch GET 200 https://registry.npmjs.org/react-dom 11ms (cache hit)
+23 silly fetch manifest sass@^1.3.0
+24 http fetch GET 200 https://registry.npmjs.org/sass 3ms (cache hit)
+25 silly placeDep ROOT next@14.2.35 REPLACE for: dashboard@0.1.0 want: ^14.2.18
+26 silly fetch manifest @next/env@14.2.35
+27 silly fetch manifest @next/swc-darwin-x64@14.2.33
+28 silly fetch manifest @next/swc-darwin-arm64@14.2.33
+29 silly fetch manifest @next/swc-linux-x64-gnu@14.2.33
+30 silly fetch manifest @next/swc-linux-x64-musl@14.2.33
+31 silly fetch manifest @next/swc-win32-x64-msvc@14.2.33
+32 silly fetch manifest @next/swc-linux-arm64-gnu@14.2.33
+33 http fetch GET 200 https://registry.npmjs.org/@next%2fswc-win32-x64-msvc 11ms (cache hit)
+34 silly fetch manifest @next/swc-win32-ia32-msvc@14.2.33
+35 http fetch GET 200 https://registry.npmjs.org/@next%2fswc-darwin-arm64 27ms (cache hit)
+36 silly fetch manifest @next/swc-linux-arm64-musl@14.2.33
+37 http fetch GET 200 https://registry.npmjs.org/@next%2fswc-darwin-x64 46ms (cache hit)
+38 silly fetch manifest @next/swc-win32-arm64-msvc@14.2.33
+39 http fetch GET 200 https://registry.npmjs.org/@next%2fswc-linux-arm64-gnu 60ms (cache hit)
+40 http fetch GET 200 https://registry.npmjs.org/@next%2fswc-linux-x64-musl 72ms (cache hit)
+41 http fetch GET 200 https://registry.npmjs.org/@next%2fenv 109ms (cache hit)
+42 http fetch GET 200 https://registry.npmjs.org/@next%2fswc-linux-x64-gnu 127ms (cache hit)
+43 http fetch GET 200 https://registry.npmjs.org/@next%2fswc-win32-ia32-msvc 126ms (cache hit)
+44 http fetch GET 200 https://registry.npmjs.org/@next%2fswc-linux-arm64-musl 117ms (cache hit)
+45 http fetch GET 200 https://registry.npmjs.org/@next%2fswc-win32-arm64-msvc 116ms (cache hit)
+46 silly placeDep ROOT @next/env@14.2.35 OK for: next@14.2.35 want: 14.2.35
+47 silly placeDep ROOT @next/swc-darwin-arm64@14.2.33 OK for: next@14.2.35 want: 14.2.33
+48 silly placeDep ROOT @next/swc-darwin-x64@14.2.33 OK for: next@14.2.35 want: 14.2.33
+49 silly placeDep ROOT @next/swc-linux-arm64-gnu@14.2.33 OK for: next@14.2.35 want: 14.2.33
+50 silly placeDep ROOT @next/swc-linux-arm64-musl@14.2.33 OK for: next@14.2.35 want: 14.2.33
+51 silly placeDep ROOT @next/swc-linux-x64-gnu@14.2.33 OK for: next@14.2.35 want: 14.2.33
+52 silly placeDep ROOT @next/swc-linux-x64-musl@14.2.33 OK for: next@14.2.35 want: 14.2.33
+53 silly placeDep ROOT @next/swc-win32-arm64-msvc@14.2.33 OK for: next@14.2.35 want: 14.2.33
+54 silly placeDep ROOT @next/swc-win32-ia32-msvc@14.2.33 OK for: next@14.2.35 want: 14.2.33
+55 silly placeDep ROOT @next/swc-win32-x64-msvc@14.2.33 OK for: next@14.2.35 want: 14.2.33
+56 silly reify mark retired [ '/Users/aleksejkrenicyn/Dashboard/node_modules/@next/env' ]
+57 silly reify mark retired [
+57 silly reify   '/Users/aleksejkrenicyn/Dashboard/node_modules/@next/swc-darwin-arm64'
+57 silly reify ]
+58 silly reify mark retired [
+58 silly reify   '/Users/aleksejkrenicyn/Dashboard/node_modules/next',
+58 silly reify   '/Users/aleksejkrenicyn/Dashboard/node_modules/.bin/next'
+58 silly reify ]
+59 silly reify moves {
+59 silly reify   '/Users/aleksejkrenicyn/Dashboard/node_modules/@next/env': '/Users/aleksejkrenicyn/Dashboard/node_modules/@next/.env-e6PZejeU',
+59 silly reify   '/Users/aleksejkrenicyn/Dashboard/node_modules/@next/swc-darwin-arm64': '/Users/aleksejkrenicyn/Dashboard/node_modules/@next/.swc-darwin-arm64-QYcVDiWi',
+59 silly reify   '/Users/aleksejkrenicyn/Dashboard/node_modules/next': '/Users/aleksejkrenicyn/Dashboard/node_modules/.next-ces7pTPl',
+59 silly reify   '/Users/aleksejkrenicyn/Dashboard/node_modules/.bin/next': '/Users/aleksejkrenicyn/Dashboard/node_modules/.bin/.next-0hhFSSgJ'
+59 silly reify }
+60 silly audit bulk request {
+60 silly audit   '@alloc/quick-lru': [ '5.2.0' ],
+60 silly audit   '@jridgewell/gen-mapping': [ '0.3.13' ],
+60 silly audit   '@jridgewell/resolve-uri': [ '3.1.2' ],
+60 silly audit   '@jridgewell/sourcemap-codec': [ '1.5.5' ],
+60 silly audit   '@jridgewell/trace-mapping': [ '0.3.31' ],
+60 silly audit   '@nodelib/fs.scandir': [ '2.1.5' ],
+60 silly audit   '@nodelib/fs.stat': [ '2.0.5' ],
+60 silly audit   '@nodelib/fs.walk': [ '1.2.8' ],
+60 silly audit   '@swc/counter': [ '0.1.3' ],
+60 silly audit   '@swc/helpers': [ '0.5.5' ],
+60 silly audit   '@types/js-cookie': [ '3.0.6' ],
+60 silly audit   '@types/node': [ '20.19.33' ],
+60 silly audit   '@types/prop-types': [ '15.7.15' ],
+60 silly audit   '@types/react': [ '18.3.28' ],
+60 silly audit   '@types/react-dom': [ '18.3.7' ],
+60 silly audit   'any-promise': [ '1.3.0' ],
+60 silly audit   anymatch: [ '3.1.3' ],
+60 silly audit   arg: [ '5.0.2' ],
+60 silly audit   autoprefixer: [ '10.4.24' ],
+60 silly audit   'baseline-browser-mapping': [ '2.9.19' ],
+60 silly audit   'binary-extensions': [ '2.3.0' ],
+60 silly audit   braces: [ '3.0.3' ],
+60 silly audit   browserslist: [ '4.28.1' ],
+60 silly audit   busboy: [ '1.6.0' ],
+60 silly audit   'camelcase-css': [ '2.0.1' ],
+60 silly audit   'caniuse-lite': [ '1.0.30001769' ],
+60 silly audit   chokidar: [ '3.6.0' ],
+60 silly audit   'glob-parent': [ '5.1.2', '6.0.2' ],
+60 silly audit   'client-only': [ '0.0.1' ],
+60 silly audit   commander: [ '4.1.1' ],
+60 silly audit   cssesc: [ '3.0.0' ],
+60 silly audit   csstype: [ '3.2.3' ],
+60 silly audit   didyoumean: [ '1.2.2' ],
+60 silly audit   dlv: [ '1.1.3' ],
+60 silly audit   'electron-to-chromium': [ '1.5.286' ],
+60 silly audit   escalade: [ '3.2.0' ],
+60 silly audit   'fast-glob': [ '3.3.3' ],
+60 silly audit   fastq: [ '1.20.1' ],
+60 silly audit   'fill-range': [ '7.1.1' ],
+60 silly audit   'fraction.js': [ '5.3.4' ],
+60 silly audit   fsevents: [ '2.3.3' ],
+60 silly audit   'function-bind': [ '1.1.2' ],
+60 silly audit   'graceful-fs': [ '4.2.11' ],
+60 silly audit   hasown: [ '2.0.2' ],
+60 silly audit   'is-binary-path': [ '2.1.0' ],
+60 silly audit   'is-core-module': [ '2.16.1' ],
+60 silly audit   'is-extglob': [ '2.1.1' ],
+60 silly audit   'is-glob': [ '4.0.3' ],
+60 silly audit   'is-number': [ '7.0.0' ],
+60 silly audit   jiti: [ '1.21.7' ],
+60 silly audit   'js-cookie': [ '3.0.5' ],
+60 silly audit   'js-tokens': [ '4.0.0' ],
+60 silly audit   lilconfig: [ '3.1.3' ],
+60 silly audit   'lines-and-columns': [ '1.2.4' ],
+60 silly audit   'loose-envify': [ '1.4.0' ],
+60 silly audit   merge2: [ '1.4.1' ],
+60 silly audit   micromatch: [ '4.0.8' ],
+60 silly audit   mz: [ '2.7.0' ],
+60 silly audit   nanoid: [ '3.3.11' ],
+60 silly audit   postcss: [ '8.5.6', '8.4.31' ],
+60 silly audit   'node-releases': [ '2.0.27' ],
+60 silly audit   'normalize-path': [ '3.0.0' ],
+60 silly audit   'object-assign': [ '4.1.1' ],
+60 silly audit   'object-hash': [ '3.0.0' ],
+60 silly audit   'path-parse': [ '1.0.7' ],
+60 silly audit   picocolors: [ '1.1.1' ],
+60 silly audit   picomatch: [ '2.3.1', '4.0.3' ],
+60 silly audit   pify: [ '2.3.0' ],
+60 silly audit   pirates: [ '4.0.7' ],
+60 silly audit   'postcss-import': [ '15.1.0' ],
+60 silly audit   'postcss-js': [ '4.1.0' ],
+60 silly audit   'postcss-load-config': [ '6.0.1' ],
+60 silly audit   'postcss-nested': [ '6.2.0' ],
+60 silly audit   'postcss-selector-parser': [ '6.1.2' ],
+60 silly audit   'postcss-value-parser': [ '4.2.0' ],
+60 silly audit   'queue-microtask': [ '1.2.3' ],
+60 silly audit   react: [ '18.3.1' ],
+60 silly audit   'react-dom': [ '18.3.1' ],
+60 silly audit   'read-cache': [ '1.0.0' ],
+60 silly audit   readdirp: [ '3.6.0' ],
+60 silly audit   resolve: [ '1.22.11' ],
+60 silly audit   reusify: [ '1.1.0' ],
+60 silly audit   'run-parallel': [ '1.2.0' ],
+60 silly audit   scheduler: [ '0.23.2' ],
+60 silly audit   'source-map-js': [ '1.2.1' ],
+60 silly audit   streamsearch: [ '1.1.0' ],
+60 silly audit   'styled-jsx': [ '5.1.1' ],
+60 silly audit   sucrase: [ '3.35.1' ],
+60 silly audit   'supports-preserve-symlinks-flag': [ '1.0.0' ],
+60 silly audit   tailwindcss: [ '3.4.19' ],
+60 silly audit   thenify: [ '3.3.1' ],
+60 silly audit   'thenify-all': [ '1.6.0' ],
+60 silly audit   tinyglobby: [ '0.2.15' ],
+60 silly audit   fdir: [ '6.5.0' ],
+60 silly audit   'to-regex-range': [ '5.0.1' ],
+60 silly audit   'ts-interface-checker': [ '0.1.13' ],
+60 silly audit   tslib: [ '2.8.1' ],
+60 silly audit   typescript: [ '5.9.3' ],
+60 silly audit   'undici-types': [ '6.21.0' ],
+60 silly audit   'update-browserslist-db': [ '1.2.3' ],
+60 silly audit   'util-deprecate': [ '1.0.2' ],
+60 silly audit   next: [ '14.2.35' ],
+60 silly audit   '@next/env': [ '14.2.35' ],
+60 silly audit   '@next/swc-darwin-arm64': [ '14.2.33' ],
+60 silly audit   '@next/swc-darwin-x64': [ '14.2.33' ],
+60 silly audit   '@next/swc-linux-arm64-gnu': [ '14.2.33' ],
+60 silly audit   '@next/swc-linux-arm64-musl': [ '14.2.33' ],
+60 silly audit   '@next/swc-linux-x64-gnu': [ '14.2.33' ],
+60 silly audit   '@next/swc-linux-x64-musl': [ '14.2.33' ],
+60 silly audit   '@next/swc-win32-arm64-msvc': [ '14.2.33' ],
+60 silly audit   '@next/swc-win32-ia32-msvc': [ '14.2.33' ],
+60 silly audit   '@next/swc-win32-x64-msvc': [ '14.2.33' ]
+60 silly audit }
+61 verbose reify failed optional dependency /Users/aleksejkrenicyn/Dashboard/node_modules/@next/swc-win32-x64-msvc
+62 silly reify mark deleted [
+62 silly reify   '/Users/aleksejkrenicyn/Dashboard/node_modules/@next/swc-win32-x64-msvc'
+62 silly reify ]
+63 verbose reify failed optional dependency /Users/aleksejkrenicyn/Dashboard/node_modules/@next/swc-win32-ia32-msvc
+64 silly reify mark deleted [
+64 silly reify   '/Users/aleksejkrenicyn/Dashboard/node_modules/@next/swc-win32-ia32-msvc'
+64 silly reify ]
+65 verbose reify failed optional dependency /Users/aleksejkrenicyn/Dashboard/node_modules/@next/swc-win32-arm64-msvc
+66 silly reify mark deleted [
+66 silly reify   '/Users/aleksejkrenicyn/Dashboard/node_modules/@next/swc-win32-arm64-msvc'
+66 silly reify ]
+67 verbose reify failed optional dependency /Users/aleksejkrenicyn/Dashboard/node_modules/@next/swc-linux-x64-musl
+68 silly reify mark deleted [
+68 silly reify   '/Users/aleksejkrenicyn/Dashboard/node_modules/@next/swc-linux-x64-musl'
+68 silly reify ]
+69 verbose reify failed optional dependency /Users/aleksejkrenicyn/Dashboard/node_modules/@next/swc-linux-x64-gnu
+70 silly reify mark deleted [
+70 silly reify   '/Users/aleksejkrenicyn/Dashboard/node_modules/@next/swc-linux-x64-gnu'
+70 silly reify ]
+71 verbose reify failed optional dependency /Users/aleksejkrenicyn/Dashboard/node_modules/@next/swc-linux-arm64-musl
+72 silly reify mark deleted [
+72 silly reify   '/Users/aleksejkrenicyn/Dashboard/node_modules/@next/swc-linux-arm64-musl'
+72 silly reify ]
+73 verbose reify failed optional dependency /Users/aleksejkrenicyn/Dashboard/node_modules/@next/swc-linux-arm64-gnu
+74 silly reify mark deleted [
+74 silly reify   '/Users/aleksejkrenicyn/Dashboard/node_modules/@next/swc-linux-arm64-gnu'
+74 silly reify ]
+75 verbose reify failed optional dependency /Users/aleksejkrenicyn/Dashboard/node_modules/@next/swc-darwin-x64
+76 silly reify mark deleted [
+76 silly reify   '/Users/aleksejkrenicyn/Dashboard/node_modules/@next/swc-darwin-x64'
+76 silly reify ]
+77 silly tarball no local data for @next/swc-darwin-arm64@https://registry.npmjs.org/@next/swc-darwin-arm64/-/swc-darwin-arm64-14.2.33.tgz. Extracting by manifest.
+78 silly tarball no local data for next@https://registry.npmjs.org/next/-/next-14.2.35.tgz. Extracting by manifest.
+79 silly tarball no local data for @next/env@https://registry.npmjs.org/@next/env/-/env-14.2.35.tgz. Extracting by manifest.
+80 http fetch GET 200 https://registry.npmjs.org/@next/env/-/env-14.2.35.tgz 185ms (cache miss)
+81 http fetch POST 200 https://registry.npmjs.org/-/npm/v1/security/advisories/bulk 273ms
+82 silly audit report {
+82 silly audit report   next: [
+82 silly audit report     {
+82 silly audit report       id: 1112593,
+82 silly audit report       url: 'https://github.com/advisories/GHSA-9g9p-9gw9-jx7f',
+82 silly audit report       title: 'Next.js self-hosted applications vulnerable to DoS via Image Optimizer remotePatterns configuration',
+82 silly audit report       severity: 'moderate',
+82 silly audit report       vulnerable_versions: '>=10.0.0 <15.5.10',
+82 silly audit report       cwe: [Array],
+82 silly audit report       cvss: [Object]
+82 silly audit report     },
+82 silly audit report     {
+82 silly audit report       id: 1112653,
+82 silly audit report       url: 'https://github.com/advisories/GHSA-h25m-26qc-wcjf',
+82 silly audit report       title: 'Next.js HTTP request deserialization can lead to DoS when using insecure React Server Components',
+82 silly audit report       severity: 'high',
+82 silly audit report       vulnerable_versions: '>=13.0.0 <15.0.8',
+82 silly audit report       cwe: [Array],
+82 silly audit report       cvss: [Object]
+82 silly audit report     }
+82 silly audit report   ]
+82 silly audit report }
+83 http fetch GET 200 https://registry.npmjs.org/next/-/next-14.2.35.tgz 2704ms (cache miss)
+84 http fetch GET 200 https://registry.npmjs.org/@next/swc-darwin-arm64/-/swc-darwin-arm64-14.2.33.tgz 4563ms (cache miss)
+85 silly ADD
+86 silly ADD
+87 silly ADD
+88 silly ADD
+89 silly ADD
+90 silly ADD
+91 silly ADD
+92 silly ADD
+93 silly ADD node_modules/fsevents
+94 silly CHANGE node_modules/next
+95 silly CHANGE node_modules/@next/swc-darwin-arm64
+96 silly CHANGE node_modules/@next/env
+97 verbose exit 0
+98 info ok
